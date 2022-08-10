@@ -31,6 +31,7 @@ export default function Home() {
         data.results?.map((item) => (
           <li key={item.name} className="list-item">
             <Link to={"/pokemon/" + item.name}>{item.name}</Link>
+            <div>filler text for commit</div>
           </li>
         ))
       )}
