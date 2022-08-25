@@ -1,12 +1,10 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { Link, Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
     <div>
-      <header>
-        <h1>PokeDex</h1>
+      <header className="flex flex-col">
+        <h1 className="text-3xl self-center">PokéDex</h1>
         <nav>
           <menu>
             <li>
@@ -15,7 +13,9 @@ export default function Layout() {
           </menu>
         </nav>
       </header>
-      <Outlet />
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 }
