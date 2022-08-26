@@ -7,8 +7,8 @@ export default function Home() {
   const styles = {
     list: css`
       list-style: none;
-      padding: 0;
-      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       li {
         text-transform: capitalize;
         a {
@@ -31,7 +31,6 @@ export default function Home() {
         data.results?.map((item) => (
           <li key={item.name} className="list-item">
             <Link to={"/pokemon/" + item.name}>{item.name}</Link>
-            <div>filler text for commit</div>
           </li>
         ))
       )}
