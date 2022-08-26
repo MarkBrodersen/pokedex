@@ -8,9 +8,16 @@ export default function Home() {
     list: css`
       list-style: none;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: center;
+      align-items: center;
+
+      row-gap: 5px;
+      column-gap: 5px;
+
       li {
         text-transform: capitalize;
+        background-color: gray;
         a {
           color: black;
           text-decoration: none;
@@ -20,17 +27,19 @@ export default function Home() {
   };
 
   const { data, isLoading } = useFetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=5000"
+    "https://pokeapi.co/api/v2/pokemon?limit=151"
   );
-
+  console.log(data.results);
   return (
     <ul css={styles.list}>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         data.results?.map((item) => (
-          <li key={item.name} className="list-item">
-            <Link to={"/pokemon/" + item.name}>{item.name}</Link>
+          <li key={item.name}>
+            <Link to={"/pokemon/" + item.name}>
+              <div>{item.name}</div>
+            </Link>
           </li>
         ))
       )}

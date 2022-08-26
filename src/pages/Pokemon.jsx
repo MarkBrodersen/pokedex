@@ -14,7 +14,7 @@ export default function Pokemon() {
   const { data, isLoading } = useFetch(
     "https://pokeapi.co/api/v2/pokemon/" + name
   );
-
+  console.log(data.results);
   return (
     <article>
       {isLoading ? (
